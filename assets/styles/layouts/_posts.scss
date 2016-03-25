@@ -1,0 +1,471 @@
+.grid {
+	max-width: 1000px;
+	margin: 0 auto;
+	width: 94%;
+	article {
+		&.format-aside {
+			.infos {
+				img {
+					border: 4px solid $color-blue;
+				}
+				i {
+					background: $color-blue;
+					border: 4px solid $color-blue;
+				}
+			}
+			figure {
+				border-bottom: 4px solid $color-blue;
+				figcaption {
+					background: $color-blue;
+				}
+			}
+		}
+		&.format-gallery {
+			.infos {
+				img {
+					border: 4px solid $color-green;
+				}
+				i {
+					background: $color-green;
+					border: 4px solid $color-green;
+				}
+			}
+			figure {
+				border-bottom: 4px solid $color-green;
+				figcaption {
+					background: $color-green;
+				}
+			}
+
+		}
+		&.format-link {
+			.infos {
+				img {
+					border: 4px solid $color-red;
+				}
+				i {
+					background: $color-red;
+					border: 4px solid $color-red;
+				}
+			}
+			figure {
+				border-bottom: 4px solid $color-red;
+				figcaption {
+					background: $color-red;
+				}
+			}
+
+		}
+		&.format-chat {
+			.infos {
+				img {
+					border: 4px solid $color-grey;
+				}
+				i {
+					background: $color-grey;
+					border: 4px solid $color-grey;
+				}
+			}
+			figure {
+				border-bottom: 4px solid $color-grey;
+				figcaption {
+					background: $color-grey;
+				}
+			}
+
+		}
+		&.format-default {
+			.infos {
+				img {
+					border: 4px solid $color-dark;
+				}
+				i {
+					background: $color-dark;
+					border: 4px solid $color-dark;
+				}
+			}
+			figure {
+				border-bottom: 4px solid $color-dark;
+				figcaption {
+					background: $color-dark;
+				}
+			}
+		}
+		h2 {
+			margin: 0;
+			text-align: center;
+			color: #000;
+			text-transform: uppercase;
+			padding: 30px 15px 15px;
+		}
+		a {
+			@include transition(all .2s ease-in-out);
+			display: block;
+			background: #fff;
+			text-decoration: none;
+			border: 1px solid #eee;
+			&:hover {
+				box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
+				border-color: rgba(0, 0, 0, .3);
+			}
+		}
+		.infos {
+			position: relative;
+			img {
+				height: 48px;
+				width: 48px;
+				left: 50%;
+				margin-left: 8px;
+				position: absolute;
+				top: -26px;
+				border-radius: 48px;
+			}
+			i {
+				position: absolute;
+				right: 50%;
+				margin-right: 8px;
+				height: 48px;
+				width: 48px;
+				top: -24px;
+				line-height: 42px;
+				text-align: center;
+				color: #fff;
+				border-radius: 48px;
+			}
+		}
+		figure {
+			margin: 0;
+			position: relative;
+			img {
+				margin: 0 auto;
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+			figcaption {
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: #fff;
+				color: #fff;
+				padding: 2px 4px;
+				font-weight: 600;
+				text-transform: uppercase;
+				font-size: .7em;
+			}
+		}
+	}
+}
+
+.single.single-post {
+	main {
+		width: 100%;
+	}
+	article {
+		header {
+			position: relative;
+			margin: 0 auto;
+			min-height: 560px;
+			width: 100%;
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+	.bg-img {
+		position: absolute;
+		overflow: hidden;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			min-width: 100%;
+			min-height: 100%;
+		}
+	}
+	.title {
+		z-index: 190;
+		margin: 0 auto;
+		padding: 0 1.25em;
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translateX(-50%) translateY(-50%);
+		transform: translateX(-50%) translateY(-50%);
+
+		h1 {
+			padding: 0 0 0.2em;
+			color: #fff;
+			font-weight: 800;
+			font-size: 3.25em;
+			margin: 0 auto;
+			line-height: 1;
+			position: relative;
+			span.brand {
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				@include transform(translateX(-50%));
+				padding-top: 15px;
+				text-align: center;
+				span {
+					position: relative;
+					width: 110px;
+					padding-left: 30px;
+					display: block;
+					&:before {
+						content: 'on:';
+						font-size: 14px;
+						line-height: 40px;
+						margin-right: 12px;
+						position: absolute;
+						left: 0;
+					}
+					img {
+						display: block;
+					}
+				}
+			}
+		}
+		p {
+			color: #fff;
+			padding: 0 0 0.6em;
+			font-weight: 300;
+			font-size: 0.85em;
+			margin: 0 auto;
+			&.subline {
+				line-height: 1;
+				font-size: 1.75em;
+			}
+		}
+	}
+
+	.content {
+		margin: 0 auto;
+		padding: 0 0 3em;
+		& > div:not(.title) {
+			margin: -80px auto 0;
+			max-width: 900px;
+			padding: 0 1.25em;
+			p {
+				margin: 0 auto 1.5em auto;
+				&:first-child {
+					font-size: 1.35em;
+				}
+			}
+		}
+
+		h3 {
+			margin: 0;
+			font-size: 1.4em;
+		}
+		img {
+			max-width: 100%;
+			width: auto;
+			height: auto;
+			display: block;
+		}
+		blockquote {
+			padding: 0.25em;
+			font-style: italic;
+			font-size: 1.65em;
+			font-family: 'Lora', serif;
+			line-height: 1.4;
+			&::before {
+				content: '\201C';
+			}
+			&::after {
+				content: '\201D';
+			}
+		}
+	}
+}
+
+
+/**
+ * Animation
+ */
+
+.single.single-post article {
+
+	&:not(.notrans) .bg-img {
+		-webkit-transition-property: top, left, right, bottom;
+		transition-property: top, left, right, bottom;
+	}
+
+	&:not(.notrans) header h1 {
+		-webkit-transition-property: color;
+		transition-property: color;
+	}
+
+	&:not(.notrans) header p {
+		-webkit-transition-property: color, opacity, -webkit-transform;
+		transition-property: color, opacity, transform;
+	}
+
+	&:not(.notrans) .content > div {
+		-webkit-transition-property: opacity, -webkit-transform;
+		transition-property: opacity, transform;
+	}
+
+	&:not(.notrans) .bg-img,
+	&:not(.notrans) header h1,
+	&:not(.notrans) .content > div {
+		-webkit-transition-duration: 0.5s;
+		transition-duration: 0.5s;
+		-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+		transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+	}
+
+	&:not(.notrans) header p,
+	&:not(.notrans) header p.subline,
+	&:not(.notrans) .content > div {
+		-webkit-transition-duration: 0.2s;
+		transition-duration: 0.2s;
+	}
+
+	&.modify:not(.notrans) header p,
+	&.modify:not(.notrans) header p.subline,
+	&.modify:not(.notrans) .content > div {
+		-webkit-transition-duration: 0.5s;
+		transition-duration: 0.5s;
+	}
+
+	&.container {
+		padding: 45px 30px;
+	}
+
+	.bg-img {
+		top: -45px;
+		right: -30px;
+		bottom: -45px;
+		left: -30px;
+		background: #514753;
+	}
+
+	&.modify .bg-img {
+		top: 0;
+		right: 0;
+		bottom: 85%;
+		left: 0;
+	}
+
+	&.modify header h1 {
+		color: lighten($color_blacked,5%);
+		span {
+			display: none;
+		}
+	}
+
+	header p {
+		color: #514753;
+		opacity: 0;
+		-webkit-transform: translateY(150px);
+		transform: translateY(150px);
+	}
+
+	&.modify header p {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+		color: #000;
+	}
+
+	.content {
+		padding: 0 5em 5em;
+	}
+	header {
+		overflow: hidden;
+	}
+
+	header,
+	.content {
+		background: #fff;
+	}
+
+	.content > div {
+		opacity: 0;
+		-webkit-transform: translateY(150px);
+		transform: translateY(150px);
+	}
+
+	&.modify .content > div {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	&.modify .codrops-top a {
+		color: #514753;
+	}
+
+	/* Delays */
+	&.modify:not(.notrans) header p:nth-last-child(2) {
+		-webkit-transition-delay: 0.1s;
+		transition-delay: 0.1s;
+	}
+
+	&.modify:not(.notrans) header p:last-child {
+		-webkit-transition-delay: 0.15s;
+		transition-delay: 0.15s;
+	}
+
+	&.modify:not(.notrans) .content > div {
+		-webkit-transition-delay: 0.2s;
+		transition-delay: 0.2s;
+	}
+
+}
+
+
+#pagination {
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+	border-top: 1px solid #eee;
+	padding: 15px 0 0 0;
+	margin: 35px 0 0;
+	list-style: none;
+	li {
+		font-size: 16px;
+		display: inline-block;
+		@include transition(all,.2s,linear);
+		&:hover {
+			a {
+				opacity: .6;
+				text-decoration: none;
+			}
+		}
+		&.current,
+		&.current:hover {
+			a,
+			span {
+				border-color: #000;
+				background: #000;
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+		& + li {
+			margin-left: 10px;
+		}
+		a, span {
+			@include transition(all,.2s,linear);
+			display: block;
+			height: 30px;
+			width: 30px;
+			line-height: 30px;
+			background: #fff;
+			border: 1px solid #e3e3e3;
+		}
+	}
+}

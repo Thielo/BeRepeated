@@ -1,0 +1,33 @@
+{
+  "name": "sage",
+  "homepage": "https://roots.io/sage/",
+  "authors": [
+    "Ben Word <ben@benword.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bourbon": "~4.2.6",
+    "modernizr": "2.8.2",
+    "fontawesome": "~4.5.0",
+    "jquery_lazyload": "jquery.lazyload#~1.9.7",
+    "masonry": "~3.3.2",
+    "imagesloaded": "~3.2.0"
+  },
+  "overrides": {
+    "modernizr": {
+      "main": "./modernizr.js"
+    },
+    "imagesloaded": {
+      "main": [
+        "./imagesloaded.pkgd.min.js"
+      ]
+    },
+    "masonry": {
+      "main": [
+        "./dist/masonry.pkgd.js"
+      ],
+      "dependencies": {}
+    }
+  }
+}

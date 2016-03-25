@@ -1,0 +1,46 @@
+.cols {
+	@include clearfix();
+}
+
+.col {
+	float: left;
+	&.-half {
+		width: 50%;
+	}
+	&.-third {
+		width: 33%;
+	}
+}
+
+.grid-sizer,
+.grid-item {
+  width: 33.3%;
+}
+
+.grid-item {
+  min-height: 120px;
+  float: left;
+  & > div {
+  	padding: 15px 10px;
+  }
+}
+
+.grid-item--width2 { width:  40%; }
+.grid-item--width3 { width:  60%; }
+
+.grid-item--height2 { height: 200px; }
+.grid-item--height3 { height: 260px; }
+.grid-item--height4 { height: 360px; }
+
+/*
+.grid {
+	max-width: 1200px;
+	.grid-sizer {
+		width: 33%;
+	}
+	.grid-item {
+		width: 33.3%;
+		padding: 10px;
+	}
+}
+*/

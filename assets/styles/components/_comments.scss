@@ -1,0 +1,27 @@
+/*.comment-list {
+  @include list-unstyled;
+}
+.comment-list ol {
+  list-style: none;
+}
+.comment-form p {
+  @extend .form-group;
+}
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+  @extend .form-control;
+}
+.comment-form input[type="submit"] {
+  @extend .btn;
+  @extend .btn-primary;
+}
+*/
+
+#disqus_thread {
+	width: 80%;
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 50px 0 0;
+}
