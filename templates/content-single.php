@@ -15,7 +15,7 @@
           <?php the_title(); ?>
           <span class="brand">
             <span>
-              <img src="<?php bloginfo('template_directory') ?>/dist/images/logo_small.png" />
+              <?php get_template_part('templates/partials/logo'); ?>
             </span>
           </span>
         </h1>

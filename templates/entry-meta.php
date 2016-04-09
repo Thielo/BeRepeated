@@ -15,4 +15,4 @@
     echo '<p class="subline">'.__('By', 'sage').' <a href="'.get_author_posts_url(get_the_author_meta('ID')).'" rel="author">'.get_the_author().'</a></p>';
   }
 ?>
-<p><strong><?php echo $postFormat; ?></strong> geschrieben am <strong><time class="updated" datetime="<?= get_post_time('c', true); ?>"><?= get_the_date(); ?></time></strong></p>
+<p><?php echo $postFormat; ?> geschrieben am <time class="updated" datetime="<?= get_post_time('c', true); ?>"><?= get_the_date(); ?></time></p>

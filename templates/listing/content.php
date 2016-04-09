@@ -40,16 +40,11 @@
         if(has_post_thumbnail()){
           the_post_thumbnail();
         }else{
-          echo '<img src="'.get_bloginfo('template_directory').'/dist/images/placeholder_posts.jpg" alt="">';
+          echo '<img src="https://placekitten.com/g/390/300" alt="">';
         }
       ?>
-        <figcaption><?php echo $postInfos[0]; ?></figcaption>
       </figure>
-      <div class="infos">
-        <i class="fa fa-<?php echo $postInfos[2]; ?>"></i>
-        <img src="<?php echo get_bloginfo('template_directory'); ?>/dist/images/profile_claus.jpg" class="author" />
-        <h2 class="entry-title"><?php the_title(); ?></h2>
-      </div>
+      <h2><span><?php the_title(); ?></span></h2>
     </a>
   </div>
 </article>

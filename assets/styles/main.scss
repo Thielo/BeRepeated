@@ -19,3 +19,8 @@
 @import "layouts/pages";
 @import "layouts/posts";
 @import "layouts/tinymce";
+
+.page-header {
+	max-width: 1000px;
+	margin: 0 auto;
+}

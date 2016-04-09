@@ -8,12 +8,12 @@ article > header {
 body {
 	margin: 0;
 	padding: 32px 0 0;
-	font-family: 'Raleway', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-family: "Source Sans Pro", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Montserrat", sans-serif;
-	font-weight: 700;
+	font-weight: 900;
 }
 
 a {
@@ -29,6 +29,10 @@ strong {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+body.home.page .wrap.page {
+	padding-top: 1px;
 }
 
 .wrap {

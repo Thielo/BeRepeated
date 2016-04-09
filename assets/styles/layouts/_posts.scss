@@ -1,112 +1,41 @@
 .grid {
-	max-width: 1000px;
+	max-width: 1020px;
 	margin: 0 auto;
 	width: 94%;
 	article {
-		&.format-aside {
-			.infos {
-				img {
-					border: 4px solid $color-blue;
-				}
-				i {
-					background: $color-blue;
-					border: 4px solid $color-blue;
-				}
-			}
-			figure {
-				border-bottom: 4px solid $color-blue;
-				figcaption {
-					background: $color-blue;
-				}
-			}
-		}
-		&.format-gallery {
-			.infos {
-				img {
-					border: 4px solid $color-green;
-				}
-				i {
-					background: $color-green;
-					border: 4px solid $color-green;
-				}
-			}
-			figure {
-				border-bottom: 4px solid $color-green;
-				figcaption {
-					background: $color-green;
-				}
-			}
-
-		}
-		&.format-link {
-			.infos {
-				img {
-					border: 4px solid $color-red;
-				}
-				i {
-					background: $color-red;
-					border: 4px solid $color-red;
-				}
-			}
-			figure {
-				border-bottom: 4px solid $color-red;
-				figcaption {
-					background: $color-red;
-				}
-			}
-
-		}
-		&.format-chat {
-			.infos {
-				img {
-					border: 4px solid $color-grey;
-				}
-				i {
-					background: $color-grey;
-					border: 4px solid $color-grey;
-				}
-			}
-			figure {
-				border-bottom: 4px solid $color-grey;
-				figcaption {
-					background: $color-grey;
-				}
-			}
-
-		}
-		&.format-default {
-			.infos {
-				img {
-					border: 4px solid $color-dark;
-				}
-				i {
-					background: $color-dark;
-					border: 4px solid $color-dark;
-				}
-			}
-			figure {
-				border-bottom: 4px solid $color-dark;
-				figcaption {
-					background: $color-dark;
-				}
-			}
-		}
 		h2 {
 			margin: 0;
-			text-align: center;
+			text-align: left;
 			color: #000;
+			line-height: 1.3;
+			position: absolute;
+			left: 15px;
+			bottom: -8px;
 			text-transform: uppercase;
-			padding: 30px 15px 15px;
+			span {
+				display: inline;
+			    background: #000;
+			    color: #ffffff;
+			    padding: 0.5rem;
+			    padding-left: 0;
+			    padding-right: 0;
+			    -webkit-box-decoration-break: clone;
+			    -ms-box-decoration-break: clone;
+			    -o-box-decoration-break: clone;
+			    box-decoration-break: clone;
+			    box-shadow:
+			      0.5rem 0 0 #000,
+			      -0.5rem 0 0 #000;
+			}
 		}
 		a {
+			position: relative;
 			@include transition(all .2s ease-in-out);
 			display: block;
 			background: #fff;
 			text-decoration: none;
-			border: 1px solid #eee;
 			&:hover {
 				box-shadow: 0 0 3px 0 rgba(0, 0, 0, .5);
-				border-color: rgba(0, 0, 0, .3);
 			}
 		}
 		.infos {
@@ -230,8 +159,11 @@
 						position: absolute;
 						left: 0;
 					}
-					img {
+					svg {
 						display: block;
+						path {
+							fill: #fff;
+						}
 					}
 				}
 			}
@@ -239,7 +171,7 @@
 		p {
 			color: #fff;
 			padding: 0 0 0.6em;
-			font-weight: 300;
+			font-weight: 200;
 			font-size: 0.85em;
 			margin: 0 auto;
 			&.subline {
@@ -467,5 +399,11 @@
 			background: #fff;
 			border: 1px solid #e3e3e3;
 		}
+	}
+}
+
+section {
+	&.content {
+		min-height: 500px;
 	}
 }

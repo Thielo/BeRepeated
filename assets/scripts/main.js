@@ -112,7 +112,7 @@
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
         WebFontConfig = {
-          google: { families: [ 'Raleway:400,600,300:latin', 'Montserrat:400,700:latin' ] }
+          google: { families: [ 'Source+Sans+Pro:400,400italic,600,600italic,200,200italic,900,900italic:latin' ] }
         };
         (function() {
           var wf = document.createElement('script');
