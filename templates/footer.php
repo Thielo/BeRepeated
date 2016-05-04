@@ -1,19 +1,19 @@
 <footer class="content-info">
-	<div class="wrap">
-		<figure id="founder">
-			<img src="<?php bloginfo('template_directory') ?>/dist/images/footer_claus.jpg" alt="Claus Richter - Head of berepeated" />
-			<figcaption>Mastermind<br/><span>of berepeated</span></figcaption>
-		</figure>
-	</div>
-  <div class="container">
+  <div class="wrap">
     <?php dynamic_sidebar('sidebar-footer'); ?>
+    <ul>
+    	<li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+    	<li><a href="#" target="_blank"><i class="fa fa-vimeo"></i></a></li>
+    	<li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
+    	<li><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
+    </ul>
   </div>
 </footer>
 <div id="search" data-overlay="search" class="overlay">
-	<div class="overlay-content wrap">
+	<div class="overlay--content wrap">
 		<?php get_search_form(); ?>
 		<div class="cols">
-			<div class="col -third">
+			<div class="col -half">
 				<select placeholder="Tags" name="tag" id="tag">
 					<?php
 						$tagArgs = array();
@@ -28,24 +28,7 @@
 					?>
 				</select>
 			</div>
-			<div class="col -third">
-				<select placeholder="Genres" name="genres" id="genres">
-					<?php
-						$genreArgs = [
-							'hide_empty' => false
-						];
-						$genreTaxes = [
-							'genre',
-						];
-						$genres = get_terms($genreTaxes, $genreArgs);
-						foreach ($genres as $genre){
-							$genre_link = get_tag_link($genre->term_id);
-							echo '<option value="'.$genre_link.'">'.$genre->name.'</option>';
-						}
-					?>
-				</select>
-			</div>
-			<div class="col -third">
+			<div class="col -half">
 				<select placeholder="Kategorien" name="categories" id="categories">
 					<?php
 						$categoryArgs = array();
@@ -59,4 +42,5 @@
 			</div>
 		</div>
 	</div>
+	<div class="overlay--backdrop"></div>
 </div>

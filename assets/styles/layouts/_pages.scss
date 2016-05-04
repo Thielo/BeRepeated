@@ -1,0 +1,121 @@
+#master-categories {
+	padding: 30px 0 60px;
+	text-align: center;
+	a.brand {
+		width: 250px;
+		display: block;
+		margin: 0 auto;
+		border-bottom: 0;
+		svg {
+			width: 100%;
+			height: auto;
+			margin-top: 2px;
+			display: block;
+			path {
+				fill: #000;
+			}
+		}
+	}
+	ul {
+		@include clearfix;
+		margin: 0;
+		padding: 25px 0 0;
+		list-style: none;
+		font-size: 0;
+		&.count--3 li {
+			width: 33.3%;
+			&:nth-child(2),
+			&:nth-child(3) {
+			}
+		}
+		&.count--4 li {
+			width: 25%;
+		}
+		&.count--2 li {
+			width: 50%;
+		}
+		li {
+			display: inline-block;
+			font-size: 20px;
+			span {
+				display: block;
+				position: absolute;
+				text-align: center;
+				padding: 0;
+				max-width: 100%;
+				padding: 9px 10px 4px;
+				color: #fff;
+				background: #000;
+				left: 50%;
+				top: 50%;
+				font-weight: bold;
+				opacity: 0;
+				white-space: nowrap;
+				@include transform(translate(-50%,-20%));
+				@include transition(all .45s ease-in-out);
+			}
+			img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+				width: auto;
+				@include transition(all .45s ease-in-out);
+			}
+		}
+		a {
+			overflow: hidden;
+			display: block;
+			position: relative;
+			background: #fff;
+			@include transition(all .45s ease-in-out);
+			&:hover, &:active {
+				img {
+					opacity: .6;
+				}
+				span {
+					@include transform(translate(-50%,-50%));
+					opacity: 1;
+				}
+			}
+			&:active {
+				span {
+					background: $color-green;
+				}
+			}
+		}
+	}
+}
+
+
+.frontpageIntro {
+	text-align: center;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 50px;
+	letter-spacing: -2px;
+	font-family: 'Montserrat', "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	strong, em {
+		font-family: 'Libre Baskerville', serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		font-size: 40px;
+		letter-spacing: -1.4px;
+	}
+	a {
+		border-bottom: 0;
+		position: relative;
+		&:after {
+			content: '';
+			left: 0;
+			position: absolute;
+			width: 100%;
+			border-bottom: 2px solid #000;
+			bottom: 3px;
+		}
+		&:hover {
+			&::after {
+				border-color: $color-green;
+			}
+		}
+	}
+}

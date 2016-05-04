@@ -1,50 +1,18 @@
-<?php
-  $format = get_post_format();
-  if($format == 'aside'){
-    $postInfos = [
-      'Plattencheck',
-      'aside',
-      'music'
-    ];
-  }else if($format == 'gallery'){
-    $postInfos = [
-      'Galerie',
-      'gallery',
-      'picture-o'
-    ];
-  }else if($format == 'link'){
-    $postInfos = [
-      'Link (extern)',
-      'link',
-      'external-link'
-    ];
-  }else if($format == 'chat'){
-    $postInfos = [
-      'Interview',
-      'chat',
-      'comments-o'
-    ];
-  }else{
-    $postInfos = [
-      'Artikel',
-      'default',
-      'file-o'
-    ];
-  }
-?>
-<article <?php post_class('grid-item format-'.$postInfos[1]); ?>>
-  <div>
-    <a href="<?php the_permalink(); ?>">
-      <figure>
+<article <?php post_class('listing-article'); ?>>
+  <a href="<?php the_permalink(); ?>">
+    <figure>
+      <img src="<?php echo get_template_directory_uri(); ?>/dist/images/transparent_article.png" alt="" />
       <?php
         if(has_post_thumbnail()){
-          the_post_thumbnail();
+          the_post_thumbnail('large',['class' => 'preview']);
         }else{
-          echo '<img src="https://placekitten.com/g/390/300" alt="">';
+          echo '<img class="preview" src="http://static.awempire.com/jsm/NoUnderwear07/ximage.jpg" alt="">';
         }
       ?>
-      </figure>
+    </figure>
+    <div>
       <h2><span><?php the_title(); ?></span></h2>
-    </a>
-  </div>
+      <?php the_excerpt(); ?>
+    </div>
+  </a>
 </article>

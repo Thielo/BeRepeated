@@ -77,6 +77,13 @@
           }
         });
 
+        $(document).on('click','.overlay--backdrop',function(e){
+          e.preventDefault();
+          $('.overlay.isVisible').each(function(){
+            window.overlay.close($(this).data('overlay'));
+          });
+        });
+
         $(document).keydown(function(e) {
           if(e.which === 27) {
             $('.overlay.isVisible').each(function(){
@@ -85,7 +92,7 @@
           }
         });
 
-        $('a[href*=#]:not([href=#])').click(function() {
+        $('a[href*="#"]:not([href="#"])').click(function() {
           if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
             var target = $(this.hash);
             target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -112,7 +119,13 @@
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
         WebFontConfig = {
-          google: { families: [ 'Source+Sans+Pro:400,400italic,600,600italic,200,200italic,900,900italic:latin' ] }
+          google: {
+            families: [
+              'Nobile:400,400italic,700,700italic',
+              'Montserrat:700,400',
+              'Libre+Baskerville:700,400,400italic'
+            ]
+          }
         };
         (function() {
           var wf = document.createElement('script');
@@ -123,20 +136,6 @@
           var s = document.getElementsByTagName('script')[0];
           s.parentNode.insertBefore(wf, s);
         })();
-
-        if($('.grid').length){
-          $('.grid').imagesLoaded( {
-            // options...
-            },
-            function() {
-              $('.grid').masonry({
-                itemSelector: '.grid-item',
-                columnWidth: '.grid-sizer',
-                percentPosition: true
-              });
-            }
-          );
-        }
       }
     },
     // Home page
@@ -151,7 +150,6 @@
     // About us page, note the change from about-us to about_us.
     'single': {
       finalize: function() {
-        // JavaScript to be fired on the about us page
         $(window).scroll(function (event) {
           if($(window).scrollTop() >= 10){
             $('article').addClass('modify');

@@ -18,11 +18,11 @@
 		margin: 0 auto 35px;
 		border: 0;
 		height: 50px;
+		font-family: 'Montserrat', serif;
 		background: #fff;
 		border-radius: 2px;
 		font-size: 22px;
 		text-align: center;
-		text-transform: uppercase;
 	}
 }
 
@@ -41,13 +41,13 @@
 		height: auto;
 	}
 	span {
-		font-size: 20px;
-		font-family: 'Raleway';
-		line-height: 42px;
+		font-size: 17px;
+		line-height: 48px;
 		display: block;
 		position: relative;
 		padding: 4px 25px 4px 10px;
 		text-align: center;
+		font-family: 'Montserrat', serif;
 		cursor: pointer;
 		max-height: 200px;
 		&:before {

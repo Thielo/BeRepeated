@@ -28,7 +28,7 @@ add_filter('body_class', __NAMESPACE__ . '\\body_class');
  * Clean up the_excerpt()
  */
 function excerpt_more() {
-  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
+  return '';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
@@ -69,42 +69,16 @@ function live_rename_formats() {
 add_action('admin_head', __NAMESPACE__ . '\\live_rename_formats');
 
 
-
-// Register Custom Taxonomy
-function wn_genre_taxonomy() {
-
-  $labels = array(
-    'name'                       => 'Genres',
-    'singular_name'              => 'Genre',
-    'menu_name'                  => 'Genre',
-    'all_items'                  => 'Alle Genres',
-    'parent_item'                => 'Eltern Genre',
-    'parent_item_colon'          => 'Eltern Genre:',
-    'new_item_name'              => 'Neues Genre',
-    'add_new_item'               => 'Neues Genre hinzufügen',
-    'edit_item'                  => 'Genre bearbeiten',
-    'update_item'                => 'Genre updaten',
-    'view_item'                  => 'Eintrag anschauen',
-    'separate_items_with_commas' => 'Separate genres with commas',
-    'add_or_remove_items'        => 'Add or remove genres',
-    'choose_from_most_used'      => 'Choose from the most used genres',
-    'popular_items'              => 'Popular Items',
-    'search_items'               => 'Search genres',
-    'not_found'                  => 'Not Found',
-    'no_terms'                   => 'No items',
-    'items_list'                 => 'Items list',
-    'items_list_navigation'      => 'Items list navigation',
-  );
-  $args = array(
-    'labels'                     => $labels,
-    'hierarchical'               => true,
-    'public'                     => true,
-    'show_ui'                    => true,
-    'show_admin_column'          => true,
-    'show_in_nav_menus'          => true,
-    'show_tagcloud'              => true,
-  );
-  register_taxonomy( 'genre', array( 'post' ), $args );
-
+/**
+ * Custom Excerpt Length
+ */
+function customExcerptLength( $length ) {
+  return 20;
 }
-add_action( 'init', __NAMESPACE__ . '\\wn_genre_taxonomy', 0 );
+add_filter( 'excerpt_length', __NAMESPACE__ . '\\customExcerptLength', 999 );
+
+
+function removeExcerptMore($output) {
+  return $output;
+}
+add_filter( 'get_the_excerpt', __NAMESPACE__ . '\\removeExcerptMore' );

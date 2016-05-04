@@ -27,9 +27,34 @@
         <?php the_content(); ?>
       </div>
     </section>
-    <footer>
-      <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
+    <footer class="share">
+      <h3>Liked this? Share it!</h3>
+      <ul>
+        <li>
+          <a target="_blank" class="social-facebook" href="http://www.facebook.com/sharer.php?u=<?php echo rawurlencode(get_permalink()); ?>">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="social-twitter" href="http://twitter.com/share?url=<?php echo rawurlencode(get_permalink()); ?>&amp;text=<?php echo rawurlencode(get_the_title()); ?>">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" class="social-google-plus" href="https://plus.google.com/share?url=<?php echo rawurlencode(get_permalink()); ?>">
+          <i class="fa fa-google-plus"></i>
+          </a>
+        </li>
+        <li>
+          <a class="social-mail" href="mailto:?Subject=<?php echo rawurlencode(get_the_title()); ?>&amp;Body=<?php echo rawurlencode(get_permalink()); ?>">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
     </footer>
+    <div class="disqus">
+      <img src="<?php echo get_template_directory_uri(); ?>/dist/images/disqus.jpg" />
+    </div>
     <?php comments_template('/templates/comments.php'); ?>
   </article>
 <?php endwhile; ?>
