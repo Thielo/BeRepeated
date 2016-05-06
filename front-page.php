@@ -8,10 +8,17 @@
     			the_row();
     			$category = get_sub_field('category');
         		$image = get_sub_field('image');
+                $categoryLatestArgs = [
+                    'cat' => $category->term_id,
+                    'posts_per_page' => 1,
+                    'post_status' => ['publish']
+                ];
+                $categoryLatest = new WP_Query($categoryLatestArgs);
+
     ?>
-    <li>
+    <li class="category-<?php echo $category->term_id; ?>">
 		<a href="<?php echo get_category_link($category->term_taxonomy_id); ?>">
-			<img src="<?php echo $image['sizes']['large']; ?>" alt="">
+			<?php echo get_the_post_thumbnail( $categoryLatest->post->ID, 'frontpage-category' ); ?>
 			<span><?php echo $category->name; ?></span>
 		</a>
 	</li>

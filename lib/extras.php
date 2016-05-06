@@ -82,3 +82,12 @@ function removeExcerptMore($output) {
   return $output;
 }
 add_filter( 'get_the_excerpt', __NAMESPACE__ . '\\removeExcerptMore' );
+
+
+
+function postThumbnailCol($image) {
+    if(!has_post_thumbnail()){
+      return trailingslashit(get_stylesheet_directory_uri()).'images/no-featured-image';
+   }
+}
+add_filter( 'featured_image_column_default_image', __NAMESPACE__ . '\\postThumbnailCol' );

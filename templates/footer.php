@@ -2,10 +2,10 @@
   <div class="wrap">
     <?php dynamic_sidebar('sidebar-footer'); ?>
     <ul>
-    	<li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-    	<li><a href="#" target="_blank"><i class="fa fa-vimeo"></i></a></li>
-    	<li><a href="#" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
-    	<li><a href="#" target="_blank"><i class="fa fa-envelope"></i></a></li>
+    	<li><a href="https://www.facebook.com/berepeated" target="_blank"><i class="fa fa-facebook"></i></a></li>
+    	<li><a href="https://vimeo.com/user44518517" target="_blank"><i class="fa fa-vimeo"></i></a></li>
+    	<li><a href="https://soundcloud.com/peated" target="_blank"><i class="fa fa-soundcloud"></i></a></li>
+    	<li><a href="mailto:claus@berepeated.de" target="_blank"><i class="fa fa-envelope"></i></a></li>
     </ul>
   </div>
 </footer>

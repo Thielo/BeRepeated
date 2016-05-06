@@ -10,7 +10,13 @@
         }
         ?>
       </div>
-      <div class="title">
+      <?php
+        $titleClass = 'title';
+        if(get_field('background_header') == true){
+          $titleClass = 'title dark';
+        }
+      ?>
+      <div class="<?php echo $titleClass; ?>">
         <h1 class="entry-title">
           <?php the_title(); ?>
           <span class="brand">
@@ -52,9 +58,6 @@
         </li>
       </ul>
     </footer>
-    <div class="disqus">
-      <img src="<?php echo get_template_directory_uri(); ?>/dist/images/disqus.jpg" />
-    </div>
     <?php comments_template('/templates/comments.php'); ?>
   </article>
 <?php endwhile; ?>

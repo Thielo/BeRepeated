@@ -6,7 +6,7 @@
         if(has_post_thumbnail()){
           the_post_thumbnail('large',['class' => 'preview']);
         }else{
-          echo '<img class="preview" src="http://static.awempire.com/jsm/NoUnderwear07/ximage.jpg" alt="">';
+          echo '<img class="preview" src="'.get_template_directory_uri().'/dist/images/placeholder.png" alt="">';
         }
       ?>
     </figure>

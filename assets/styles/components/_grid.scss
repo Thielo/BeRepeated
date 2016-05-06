@@ -12,108 +12,136 @@
 	}
 }
 
-.grid {
+.archive {
 	@include clearfix;
 	article {
-		& + article {
-			margin-top: 35px;
-		}
-		a {
-			position: relative;
-			display: block;
-			color: #000;
-			@include clearfix;
-			&:hover {
-				h2, h2:after, h2:before {
-					background: $color-green;
-					border-color: $color-green;
-				}
-			}
-		}
-		figure {
-			text-align: center;
-			margin: 0;
-			width: 55%;
-			float: left;
-			position: relative;
-			overflow: hidden;
-			img.placeholder {
-				display: block;
-				margin: 0 auto;
-				max-width: 100%;
-				height: auto;
-			}
-			img.preview {
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				width: 100%;
-				height: auto;
-				display: block;
-				@include transform(translate(-50%,-50%));
-			}
-		}
-		div {
-			float: right;
-			width: 45%;
-			padding: 0 3%;
-			padding-top: 0.5em;
-			position: absolute;
-			right: 0;
-			top: 50%;
-			@include transform(translateY(-50%));
-			h2 {
-				text-align: left;
-				position: relative;
-  				line-height: 1;
-  				color: #fff;
-  				display: inline;
-  				white-space: pre-wrap;
-  				border: 0 solid #000;
-  				background: #000;
-  				letter-spacing: 0.5px;
-  				/* 0.25em is roughly equal to one space character. */
-  				border-width: 0.25em 0;
-  				@include transition(all .2s ease-in-out);
-				&::before,
-				&::after {
-					content: "";
-					position: absolute;
-					background: #000;
-					top: -0.25em;
-					right: 100%;
-					bottom: -0.25em;
-					width: 0.25em;
-					@include transition(all .2s ease-in-out);
-				}
-				&::after {
-					right: auto;
-					left: 100%;
-				}
-				& > span {
-					position: relative;
-  					z-index: 1;
-				}
-			}
-			p {
-				margin: 0;
-				padding-top: 30px;
-				line-height: 1.6;
-				font-size: 18px;
-			}
-		}
-		&:nth-child(2n) {
-			a {
-				background: #fff;
+		&.listing-photography {
+			& + article {
+				margin-top: 65px;
 			}
 			figure {
-				float: right;
+				text-alig: center;
+				max-width: 86%;
+				margin: 0 auto;
+				padding: 0 0 20px;
+				border-bottom: 2px solid #000;
+			}
+			img {
+				display: block;
+				margin: 0 auto;
+				width: 100%;
+				//max-width: 100%;
+				height: auto;
+			}
+			figcaption {
+				padding: 20px 0 0;
+				font-family: 'Libre Baskerville', serif;
+				font-size: 14px;
+				text-align: center;
+				color: #444;
+			}
+		}
+		&.listing-article {
+			& + article {
+				margin-top: 35px;
+			}
+			a {
+				position: relative;
+				display: block;
+				color: #000;
+				@include clearfix;
+				&:hover {
+					h2, h2:after, h2:before {
+						background: $color-green;
+						border-color: $color-green;
+					}
+				}
+			}
+			figure {
+				text-align: center;
+				margin: 0;
+				width: 55%;
+				float: left;
+				position: relative;
+				overflow: hidden;
+				img.placeholder {
+					display: block;
+					margin: 0 auto;
+					max-width: 100%;
+					height: auto;
+				}
+				img.preview {
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					width: 100%;
+					height: auto;
+					display: block;
+					@include transform(translate(-50%,-50%));
+				}
 			}
 			div {
-				float: left;
+				float: right;
+				width: 45%;
+				padding: 0 3%;
+				padding-top: 0.5em;
 				position: absolute;
-				right: auto;
-				left: 0;
+				right: 0;
+				top: 50%;
+				@include transform(translateY(-50%));
+				h2 {
+					text-align: left;
+					position: relative;
+	  				line-height: 1;
+	  				color: #fff;
+	  				display: inline;
+	  				white-space: pre-wrap;
+	  				border: 0 solid #000;
+	  				background: #000;
+	  				letter-spacing: 0.5px;
+	  				/* 0.25em is roughly equal to one space character. */
+	  				border-width: 0.25em 0;
+	  				@include transition(all .2s ease-in-out);
+					&::before,
+					&::after {
+						content: "";
+						position: absolute;
+						background: #000;
+						top: -0.25em;
+						right: 100%;
+						bottom: -0.25em;
+						width: 0.25em;
+						@include transition(all .2s ease-in-out);
+					}
+					&::after {
+						right: auto;
+						left: 100%;
+					}
+					& > span {
+						position: relative;
+	  					z-index: 1;
+					}
+				}
+				p {
+					margin: 0;
+					padding-top: 30px;
+					line-height: 1.6;
+					font-size: 18px;
+				}
+			}
+			&:nth-child(2n) {
+				a {
+					background: #fff;
+				}
+				figure {
+					float: right;
+				}
+				div {
+					float: left;
+					position: absolute;
+					right: auto;
+					left: 0;
+				}
 			}
 		}
 	}
