@@ -117,7 +117,6 @@
         }
       },
       finalize: function() {
-        // JavaScript to be fired on all pages, after page specific JS is fired
         WebFontConfig = {
           google: {
             families: [
@@ -138,16 +137,44 @@
         })();
       }
     },
-    // Home page
-    'home': {
-      init: function() {
-        // JavaScript to be fired on the home page
+    'page_template_page_locations': {
+      init: function(){
+
       },
-      finalize: function() {
-        // JavaScript to be fired on the home page, after the init JS
+      finalize: function(){
+          // Create a map object and specify the DOM element for display.
+          var aachen = {
+            lat: 50.775466,
+            lng: 6.081478
+          };
+          var map = new google.maps.Map(
+            document.getElementById('map'),
+            {
+              center: aachen,
+              scrollwheel: false,
+              zoom: 14
+            }
+          );
+
+          $.each(locations,function(index,value){
+            var marker = new google.maps.Marker({
+              map: map,
+              position: {lat: parseFloat(value.location.lat), lng: parseFloat(value.location.lng)},
+              title: value.title
+            });
+          });
       }
     },
-    // About us page, note the change from about-us to about_us.
+    'page_template_page_events': {
+      init: function() {
+
+      },
+      finalize: function() {
+        $('span.btn.btn--ghost').click(function(){
+          window.location.replace('?month='+$('#dateMonth').val()+'-'+$('#dateYear').val());
+        });
+      }
+    },
     'single': {
       finalize: function() {
         $(window).scroll(function (event) {

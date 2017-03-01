@@ -1,0 +1,36 @@
+html.map { height: 100vh; margin: 0; padding: 0; }
+#map {
+	height: 100vh;
+	position: relative;
+	z-index: 75;
+}
+
+body.page-template-page-locations {
+	.page.wrap {
+		padding-bottom: 0;
+	}
+	header.banner {
+		position: absolute;
+		@include transform(translateX(-50%));
+		z-index: 100;
+		left: 50%;
+		top: 45px;
+		width: 200px;
+		margin: 0 auto;
+		a.brand {
+			margin: 0 0 0;
+		}
+	}
+	footer.content-info {
+		position: absolute;
+		bottom: 0;
+		border-top: 1px solid #000;
+		z-index: 100;
+		.wrap {
+			border-top: 0;
+		}
+		section.widget, ul {
+			padding: 10px 0;
+		}
+	}
+}

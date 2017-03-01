@@ -45,15 +45,54 @@
 			& + article {
 				margin-top: 35px;
 			}
+			&:nth-child(even) {
+				figure {
+					border-left: 0;
+				}
+				div {
+					border-right: 0;
+				}
+				svg {
+					left: 0;
+				}
+			}
+			&:nth-child(odd) {
+				figure {
+					border-right: 0;
+				}
+				div {
+					border-left: 0;
+				}
+				svg {
+					right: -1px;
+					transform: rotate(180deg);
+				}
+			}
 			a {
 				position: relative;
 				display: block;
 				color: #000;
 				@include clearfix;
 				&:hover {
-					h2, h2:after, h2:before {
+					/*h2 {
 						background: $color-green;
 						border-color: $color-green;
+						color: #fff;
+						&::before {
+							bottom: -8px;
+							background: #fff;
+						}
+					}*/
+					div {
+						border-color: #000;
+					}
+					figure::before {
+						border-left-color: #fff;
+					}
+					figure {
+						svg {
+							opacity: 1;
+						}
 					}
 				}
 			}
@@ -64,6 +103,39 @@
 				float: left;
 				position: relative;
 				overflow: hidden;
+				border: 2px solid #000;
+				svg {
+					position: absolute;
+					top: 0;
+					z-index: 100;
+					height: 100%;
+					width: auto;
+					opacity: 0;
+					@include transition(all .4s ease-in-out);
+					polygon {
+						fill: #fff;
+					}
+				}
+				&::before {
+					/*z-index: 100;
+					content: "";
+					position: absolute;
+					background: transparent;
+					top: 50%;
+					left: 0;
+					width: 0;
+					height: 0;
+					border-top: 100px solid transparent;
+					border-bottom: 100px solid transparent;
+					border-left: 60px solid transparent;
+					@include transform(translate(0%,-50%));
+					@include transition(all .4s ease-in-out);*/
+				}
+				@media(max-width:900px){
+					width: 100%;
+					float: none;
+					position: relative;
+				}
 				img.placeholder {
 					display: block;
 					margin: 0 auto;
@@ -72,51 +144,56 @@
 				}
 				img.preview {
 					position: absolute;
-					left: 50%;
-					top: 50%;
+					left: 0%;
+					top: 0%;
 					width: 100%;
 					height: auto;
 					display: block;
-					@include transform(translate(-50%,-50%));
+					/*@include transform(translate(-50%,-50%));*/
 				}
 			}
 			div {
 				float: right;
 				width: 45%;
 				padding: 0 3%;
-				padding-top: 0.5em;
 				position: absolute;
 				right: 0;
-				top: 50%;
-				@include transform(translateY(-50%));
-				h2 {
-					text-align: left;
+				top: 0%;
+				height: 100%;
+				border: 2px solid transparent;
+				@include transition(all .4s ease-in-out);
+				@media(max-width:900px){
+					float: none;
 					position: relative;
-	  				line-height: 1;
-	  				color: #fff;
-	  				display: inline;
-	  				white-space: pre-wrap;
-	  				border: 0 solid #000;
-	  				background: #000;
+					top: 0;
+					right: 0;
+					width: 90%;
+					margin: 0 auto;
+					padding-top: 0;
+					//@include transform(translateY(0%));
+				}
+				h2 {
+					padding: 10px 5px 0;
+					text-align: center;
+					position: relative;
+	  				line-height: 1.3;
+	  				color: #000;
+	  				//border: 2px solid #000;
+	  				background: #fff;
 	  				letter-spacing: 0.5px;
-	  				/* 0.25em is roughly equal to one space character. */
-	  				border-width: 0.25em 0;
+	  				margin: 0;
 	  				@include transition(all .2s ease-in-out);
-					&::before,
-					&::after {
+					/*&::before {
 						content: "";
 						position: absolute;
 						background: #000;
-						top: -0.25em;
-						right: 100%;
-						bottom: -0.25em;
-						width: 0.25em;
+						bottom: -7px;
+						left: 50%;
+						width: 12px;
+						height: 12px;
+						@include transform(translateX(-50%) rotate(-45deg));
 						@include transition(all .2s ease-in-out);
-					}
-					&::after {
-						right: auto;
-						left: 100%;
-					}
+					}*/
 					& > span {
 						position: relative;
 	  					z-index: 1;
@@ -124,7 +201,7 @@
 				}
 				p {
 					margin: 0;
-					padding-top: 30px;
+					padding-top: 25px;
 					line-height: 1.6;
 					font-size: 18px;
 				}
@@ -135,12 +212,27 @@
 				}
 				figure {
 					float: right;
+					@media(max-width:900px){
+						float: none;
+					}
 				}
 				div {
 					float: left;
 					position: absolute;
 					right: auto;
 					left: 0;
+					@media(max-width:900px){
+						position: relative;
+						float: none;
+						text-align: center;
+						@include transform(translateY(-50%));
+						h2 {
+							display: inline-block;
+						}
+						p {
+							display: none;
+						}
+					}
 				}
 			}
 		}

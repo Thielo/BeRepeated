@@ -1,0 +1,48 @@
+{
+    "key": "group_589e25150a666",
+    "title": "Artikeloptionen",
+    "fields": [
+        {
+            "key": "field_589e251d80998",
+            "label": "Alternatives Artikelbild",
+            "name": "wn_article_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "full",
+            "library": "all",
+            "min_width": 625,
+            "min_height": 250,
+            "min_size": "",
+            "max_width": 625,
+            "max_height": 250,
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1486759285
+}

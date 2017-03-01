@@ -13,6 +13,12 @@ footer.content-info {
 	section.widget {
 		padding: 20px 0;
 		float: left;
+		@media(max-width: 400px){
+			width: 100%;
+			float: none;
+			text-align: center;
+			padding: 10px 0 0;
+		}
 		/*font-family: 'Libre Baskerville', serif;*/
 		p {
 			margin: 0;
@@ -23,6 +29,11 @@ footer.content-info {
 		margin: 0;
 		float: right;
 		font-size: 0;
+		@media(max-width: 400px){
+			width: 100%;
+			float: none;
+			text-align: center;
+		}
 		li {
 			font-size: 16px;
 			display: inline-block;

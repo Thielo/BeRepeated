@@ -1,0 +1,111 @@
+.page-template-page-events {
+  h1 {
+    text-align: center;
+  }
+}
+
+.events {
+	@include clearfix;
+
+	.eventList {
+		float: left;
+		width: 72%;
+	}
+
+	.filter {
+		margin-left: 3%;
+		float: right;
+		width: 25%;
+
+		strong {
+			text-align: center;
+			display: block;
+		}
+		select {
+			display: block;
+			width: 90%;
+			margin: 12px auto 0;
+			height: 34px;
+			padding: 6px 12px;
+			font-size: 14px;
+			line-height: 1.42857143;
+			color: #555;
+			background-color: #fff;
+			background-image: none;
+			border: 1px solid #ccc;
+			-webkit-border-radius: 0px;
+			border-radius: 0px;
+			-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+			box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+			-webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+			-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+			transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		}
+		span {
+			display: block;
+			width: 90%;
+			margin: 16px auto 0;
+			padding: 12px 10px;
+			text-align: center;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			cursor: pointer;
+			@include transition(all .5s ease-in-out);
+			&:hover {
+				background: $color-green;
+				border-color: rgba(0,0,0,.3);
+			}
+		}
+	}
+}
+
+p.no-events {
+	/*font-weight: bold;*/
+	color: rgba(186,71,73,1);
+	text-align: center;
+}
+
+.event {
+	padding: 15px;
+	display: block;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	position: relative;
+	@include transition(all .35s ease-in-out);
+	&:first-child {
+		border-top: 1px solid rgba(0,0,0,.1);
+	}
+	&::after {
+		@include transition(all .35s ease-in-out);
+		opacity: 0;
+		right: 20px;
+		top: 50%;
+		position: absolute;
+		@include transform(translateY(-50%));
+
+		content: '';
+		width: 0;
+		height: 0;
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+		border-left: 20px solid rgba(0,0,0,.6);
+	}
+	&:hover {
+		background: rgba($color-green,.1);
+		&::after {
+			opacity: 1;
+		}
+	}
+	p {
+		margin: 0;
+		&.date {
+			opacity: .8;
+		}
+	}
+	div {
+		margin-top: 15px;
+	}
+	h3 {
+		font-size: 25px;
+		margin: 0 0 12px;
+	}
+}

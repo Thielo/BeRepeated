@@ -91,3 +91,172 @@ function postThumbnailCol($image) {
    }
 }
 add_filter( 'featured_image_column_default_image', __NAMESPACE__ . '\\postThumbnailCol' );
+
+
+function my_embed_oembed_html($html, $url, $attr, $post_id) {
+  return '<div class="embedContainer">' . $html . '</div>';
+}
+add_filter('embed_oembed_html', __NAMESPACE__ . '\\my_embed_oembed_html', 99, 4);
+
+
+// Add Shortcode
+function embedFb( $atts ) {
+
+  // Attributes
+  $atts = shortcode_atts(
+    array(
+      'url' => '',
+    ),
+    $atts
+  );
+
+  if($atts['url'] != ''){
+    return '<div class="responsiveEmbed"><div class="fb-post" data-href="'.$atts['url'].'"></div></div>';
+  }
+
+}
+add_shortcode( 'fb', __NAMESPACE__ . '\\embedFb' );
+
+
+
+
+
+
+// Register Custom Post Type
+function createEventsPostType() {
+
+  $labels = array(
+    'name'                  => 'Events',
+    'singular_name'         => 'Event',
+    'menu_name'             => 'Events',
+    'name_admin_bar'        => 'Events',
+    'archives'              => 'Event Archiv',
+    'parent_item_colon'     => 'Eltern Event',
+    'all_items'             => 'Alle Events',
+    'add_new_item'          => 'Neues Event hinzufügen',
+    'add_new'               => 'Neu hinzufügen',
+    'new_item'              => 'Neues Event',
+    'edit_item'             => 'Event bearbeiten',
+    'update_item'           => 'Event updaten',
+    'view_item'             => 'Event anschauen',
+    'search_items'          => 'Event suchen',
+    'not_found'             => 'Nichts gefunden',
+    'not_found_in_trash'    => 'Nichts im Papierkorb gefunden',
+    'featured_image'        => '',
+    'set_featured_image'    => '',
+    'remove_featured_image' => '',
+    'use_featured_image'    => '',
+    'insert_into_item'      => '',
+    'uploaded_to_this_item' => '',
+    'items_list'            => '',
+    'items_list_navigation' => '',
+    'filter_items_list'     => '',
+  );
+  $rewrite = array(
+    'slug'                  => 'event',
+    'with_front'            => true,
+    'pages'                 => true,
+    'feeds'                 => true,
+  );
+  $args = array(
+    'label'                 => 'Event',
+    'description'           => 'Events',
+    'labels'                => $labels,
+    'supports'              => array( 'title', ),
+    'hierarchical'          => false,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 5,
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => true,
+    'exclude_from_search'   => true,
+    'publicly_queryable'    => true,
+    'rewrite'               => $rewrite,
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'event', $args );
+
+}
+add_action( 'init', __NAMESPACE__ . '\\createEventsPostType', 0 );
+
+
+function createLocationsPostType() {
+
+  $labels = array(
+    'name'                  => 'Locations',
+    'singular_name'         => 'Location',
+    'menu_name'             => 'Locations',
+    'name_admin_bar'        => 'Locations',
+    'archives'              => 'Location Archiv',
+    'parent_item_colon'     => 'Eltern Location',
+    'all_items'             => 'Alle Locations',
+    'add_new_item'          => 'Neue Location hinzufügen',
+    'add_new'               => 'Neu hinzufügen',
+    'new_item'              => 'Neue Location',
+    'edit_item'             => 'Location bearbeiten',
+    'update_item'           => 'Location updaten',
+    'view_item'             => 'Location anschauen',
+    'search_items'          => 'Location suchen',
+    'not_found'             => 'Nichts gefunden',
+    'not_found_in_trash'    => 'Nichts im Papierkorb gefunden',
+    'featured_image'        => '',
+    'set_featured_image'    => '',
+    'remove_featured_image' => '',
+    'use_featured_image'    => '',
+    'insert_into_item'      => '',
+    'uploaded_to_this_item' => '',
+    'items_list'            => '',
+    'items_list_navigation' => '',
+    'filter_items_list'     => '',
+  );
+  $rewrite = array(
+    'slug'                  => 'location',
+    'with_front'            => true,
+    'pages'                 => true,
+    'feeds'                 => true,
+  );
+  $args = array(
+    'label'                 => 'Location',
+    'description'           => 'Locations',
+    'labels'                => $labels,
+    'supports'              => array( 'title', ),
+    'hierarchical'          => false,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 5,
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => true,
+    'exclude_from_search'   => true,
+    'publicly_queryable'    => true,
+    'rewrite'               => $rewrite,
+    'capability_type'       => 'page',
+  );
+  register_post_type( 'location', $args );
+
+}
+add_action( 'init', __NAMESPACE__ . '\\createLocationsPostType', 0 );
+
+
+if( function_exists('acf_add_options_page') ) {
+
+  acf_add_options_page([
+    'page_title'  => 'Locations',
+    'menu_title'  => 'Locations',
+    'menu_slug'   => 'wn-locations',
+    'capability'  => 'edit_posts',
+    'redirect'    => false
+  ]);
+}
+
+
+
+function my_acf_init() {
+  acf_update_setting('google_api_key', 'AIzaSyA6tYAPlVItyqXHU69nWd9CwWWO8WBNgnI');
+}
+add_action('acf/init', __NAMESPACE__ . '\\my_acf_init');

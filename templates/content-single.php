@@ -37,12 +37,12 @@
       <h3>Liked this? Share it!</h3>
       <ul>
         <li>
-          <a target="_blank" class="social-facebook" href="http://www.facebook.com/sharer.php?u=<?php echo rawurlencode(get_permalink()); ?>">
+          <a target="_blank" class="social-facebook" href="https://www.facebook.com/sharer.php?u=<?php echo rawurlencode(get_permalink()); ?>">
             <i class="fa fa-facebook"></i>
           </a>
         </li>
         <li>
-          <a target="_blank" class="social-twitter" href="http://twitter.com/share?url=<?php echo rawurlencode(get_permalink()); ?>&amp;text=<?php echo rawurlencode(get_the_title()); ?>">
+          <a target="_blank" class="social-twitter" href="https://twitter.com/share?url=<?php echo rawurlencode(get_permalink()); ?>&amp;text=<?php echo rawurlencode(get_the_title()); ?>">
             <i class="fa fa-twitter"></i>
           </a>
         </li>
@@ -54,6 +54,12 @@
         <li>
           <a class="social-mail" href="mailto:?Subject=<?php echo rawurlencode(get_the_title()); ?>&amp;Body=<?php echo rawurlencode(get_permalink()); ?>">
             <i class="fa fa-envelope"></i>
+          </a>
+        </li>
+        <li>
+          <a class="social-recommend" href="<?php echo get_permalink(); ?>">
+            <i class="fa fa-heart"></i>
+            <span>0</span>
           </a>
         </li>
       </ul>

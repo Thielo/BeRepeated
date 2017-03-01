@@ -7,6 +7,13 @@
 		height: 150px;
 		min-height: 150px;
 		@include transform(translate(-50%,-50%));
+		@media(max-width: 600px) and (min-width: 471px) {
+			width: 60%;
+		}
+		@media(max-width: 600px) {
+			width: 90%;
+		}
+
 	}
 	button {
 		display: none;
@@ -23,6 +30,11 @@
 		border-radius: 2px;
 		font-size: 22px;
 		text-align: center;
+	}
+	@media(max-width: 730px) {
+		.cols {
+			display: none;
+		}
 	}
 }
 
