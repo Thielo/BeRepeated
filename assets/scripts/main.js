@@ -142,27 +142,37 @@
 
       },
       finalize: function(){
-          // Create a map object and specify the DOM element for display.
-          var aachen = {
-            lat: 50.775466,
-            lng: 6.081478
-          };
-          var map = new google.maps.Map(
-            document.getElementById('map'),
-            {
-              center: aachen,
-              scrollwheel: false,
-              zoom: 14
-            }
-          );
+        // Create a map object and specify the DOM element for display.
+        var lat = 50.775466,
+            lng = 6.081478;
 
-          $.each(locations,function(index,value){
-            var marker = new google.maps.Marker({
-              map: map,
-              position: {lat: parseFloat(value.location.lat), lng: parseFloat(value.location.lng)},
-              title: value.title
-            });
+        var mapOptions = {
+          center: new google.maps.LatLng(lat,lng),
+          zoom: 15,
+          gestureHandling: 'auto',
+          fullscreenControl: false,
+          zoomControl: true,
+          disableDoubleClickZoom: false,
+          mapTypeControl: false,
+          scaleControl: true,
+          scrollwheel: false,
+          streetViewControl: false,
+          draggable : true,
+          clickableIcons: false,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles: [{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":1.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":5}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":40}]}]
+        };
+
+        var mapElement = document.getElementById('map');
+        var map = new google.maps.Map(mapElement, mapOptions);
+
+        $.each(locations,function(index,value){
+          var marker = new google.maps.Marker({
+            map: map,
+            position: {lat: parseFloat(value.location.lat), lng: parseFloat(value.location.lng)},
+            title: value.title
           });
+        });
       }
     },
     'page_template_page_events': {

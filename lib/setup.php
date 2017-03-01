@@ -109,3 +109,20 @@ function assets() {
   }
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+
+// Add Shortcode
+function cta_shortcode( $atts ) {
+  // Attributes
+  $atts = shortcode_atts(
+    [
+      'url' => 'http://www.google.de/',
+      'text' => 'Paypaypay!',
+    ],
+    $atts
+  );
+
+  return '<a href="'.$atts['url'].'" class="cta">'.$atts['text'].'</a>';
+
+}
+add_shortcode('cta',__NAMESPACE__ . '\\cta_shortcode');
