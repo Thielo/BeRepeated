@@ -5,6 +5,7 @@
         <?php get_template_part('templates/partials/logo'); ?>
       </a>
     </span>
+    <a class="navToggle" href="#"><span><i>Menu</i></span></a>
     <nav class="nav-primary">
       <?php
         if (has_nav_menu('primary_navigation')){

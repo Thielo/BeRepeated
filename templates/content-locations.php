@@ -13,12 +13,28 @@
 
 	$locationsList = [];
 	foreach($locations->posts as $location){
+		$thisLoc = get_field('location',$location->ID);
+
+		$content = $location->post_content;
+		$content = apply_filters('the_content', $content);
+		$content = str_replace(']]>', ']]&gt;', $content);
+
 		$locationsList[] = [
-			'id' => $location->ID,
+			'icon' => get_template_directory_uri().'/dist/images/map-icon.png',
+			'lat' => $thisLoc['lat'],
+			'lng' => $thisLoc['lng'],
 			'title' => $location->post_title,
-			'location' => get_field('location',$location->ID),
+			'infoWindow' => [
+				'content' => '<div class="infoBox"><h4>'.$location->post_title.'</h4><div>'.$content.'</div></div>',
+			],
+			'details' => [
+				'database_id' => $location->ID,
+				'address' => $thisLoc['address'],
+			],
 		];
+
 	}
+	//die();
 ?>
 <script>
 	var locations = <?php echo json_encode($locationsList); ?>;

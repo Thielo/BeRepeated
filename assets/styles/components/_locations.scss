@@ -24,13 +24,20 @@ body.page-template-page-locations {
 	footer.content-info {
 		position: absolute;
 		bottom: 0;
-		border-top: 1px solid #000;
 		z-index: 100;
+		background: transparent;
 		.wrap {
-			border-top: 0;
 		}
 		section.widget, ul {
 			padding: 10px 0;
 		}
+	}
+
+	.infoBox {
+		h4 {
+			margin: 0 0 8px;
+			padding: 0;
+		}
+
 	}
 }

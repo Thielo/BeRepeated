@@ -53,6 +53,20 @@
     // All pages
     'common': {
       init: function() {
+
+        $('#bar').after($('nav').clone());
+        $('#bar').on('click','.navToggle',function(e){
+          e.preventDefault();
+          if($(this).hasClass('on')){
+            $(this).removeClass('on');
+            $('#bar + nav').removeClass('open');
+          }else{
+
+            $(this).addClass('on');
+            $('#bar + nav').addClass('open');
+          }
+        });
+
         // JavaScript to be fired on all pages
         $('#search select').each(function(){
           window.helpers.dropdownBox.create($(this));
@@ -143,15 +157,17 @@
       },
       finalize: function(){
         // Create a map object and specify the DOM element for display.
-        var lat = 50.775466,
-            lng = 6.081478;
-
-        var mapOptions = {
-          center: new google.maps.LatLng(lat,lng),
+        map = new GMaps({
+          div: '#map',
+          lat: 50.775466,
+          lng: 6.081478,
+          zoomControl: true,
+          zoomControlOptions: {
+              position: google.maps.ControlPosition.LEFT_CENTER
+          },
           zoom: 15,
           gestureHandling: 'auto',
           fullscreenControl: false,
-          zoomControl: true,
           disableDoubleClickZoom: false,
           mapTypeControl: false,
           scaleControl: true,
@@ -159,19 +175,18 @@
           streetViewControl: false,
           draggable : true,
           clickableIcons: false,
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          styles: [{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":1.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":5}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":40}]}]
-        };
+        });
 
-        var mapElement = document.getElementById('map');
-        var map = new google.maps.Map(mapElement, mapOptions);
+        map.addStyle({
+            styledMapName:"Styled Map",
+            styles: [{"featureType":"landscape","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"stylers":[{"hue":"#00aaff"},{"saturation":-100},{"gamma":1.15},{"lightness":12}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"visibility":"on"},{"lightness":5}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":40}]}],
+            mapTypeId: "map_style"
+        });
+
+        map.setStyle("map_style");
 
         $.each(locations,function(index,value){
-          var marker = new google.maps.Marker({
-            map: map,
-            position: {lat: parseFloat(value.location.lat), lng: parseFloat(value.location.lng)},
-            title: value.title
-          });
+          map.addMarker(value);
         });
       }
     },

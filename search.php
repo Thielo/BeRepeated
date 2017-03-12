@@ -7,7 +7,6 @@
   <?php get_search_form(); ?>
 <?php endif; ?>
 <div class="grid">
-	<div class="grid-sizer"></div>
 	<?php
 		while(have_posts()){
 			the_post();

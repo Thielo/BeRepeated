@@ -12,7 +12,8 @@
 	}
 }
 
-.archive {
+.archive,
+.search {
 	@include clearfix;
 	article {
 		&.listing-photography {
@@ -72,6 +73,8 @@
 				position: relative;
 				display: block;
 				color: #000;
+				@include transition(all .4s ease-in-out);
+				border: 2px solid #fff;
 				@include clearfix;
 				&:hover {
 					/*h2 {
@@ -83,13 +86,11 @@
 							background: #fff;
 						}
 					}*/
-					div {
-						border-color: #000;
-					}
-					figure::before {
-						border-left-color: #fff;
-					}
+					border-color: #000;
 					figure {
+						&::before {
+							border-left-color: #fff;
+						}
 						svg {
 							opacity: 1;
 						}
@@ -103,7 +104,6 @@
 				float: left;
 				position: relative;
 				overflow: hidden;
-				border: 2px solid #000;
 				svg {
 					position: absolute;
 					top: 0;

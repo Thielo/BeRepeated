@@ -82,4 +82,30 @@
 			opacity: 1;
 		}
 	}
+
+	form {
+		display: block;
+		max-width: 500px;
+		margin: 0 auto;
+		div {
+			margin-bottom: 15px;
+			&.half {
+				width: 45%;
+				& + .half {
+					margin-left: 10%;
+				}
+			}
+		}
+		label {
+			font-weight: normal;
+			font-style: italic;
+			color: #aaa;
+		}
+		input, textarea {
+			border: 2px solid #aaa;
+			&:hover, &:focus {
+				border-color: #000;
+			}
+		}
+	}
 }

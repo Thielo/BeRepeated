@@ -12,7 +12,8 @@
     "fontawesome": "~4.5.0",
     "jquery_lazyload": "jquery.lazyload#~1.9.7",
     "masonry": "~3.3.2",
-    "imagesloaded": "~3.2.0"
+    "imagesloaded": "~3.2.0",
+    "gmaps": "^0.4.24"
   },
   "overrides": {
     "modernizr": {
@@ -22,6 +23,12 @@
       "main": [
         "./imagesloaded.pkgd.min.js"
       ]
+    },
+    "gmaps": {
+      "main": [
+        "./gmaps.js"
+      ],
+      "dependencies": {}
     },
     "masonry": {
       "main": [
